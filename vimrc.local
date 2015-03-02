@@ -17,3 +17,17 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,ColorScheme * :hi IndentGuidesOdd ctermbg=none
 autocmd VimEnter,ColorScheme * :hi IndentGuidesEven ctermbg=none
 
+
+let g:vdebug_keymap = {
+\    "run" : "<F5>",
+\    "run_to_cursor" : "<F4>",
+\    "step_over" : "<F8>",
+\    "step_into" : "<F7>",
+\    "step_out" : "<F9>",
+\    "close" : "<F6>",
+\    "detach" : "<F2>",
+\    "set_breakpoint" : "<F10>",
+\    "get_context" : "<F11>",
+\    "eval_under_cursor" : "<F12>",
+\    "eval_visual" : "<Leader>e"
+\}
