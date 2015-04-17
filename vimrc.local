@@ -1,9 +1,10 @@
+set t_Co=256
 colorscheme railscasts
 
 set softtabstop=4
 set tabstop=4
 set expandtab
-
+set nofoldenable
 
 if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -12,12 +13,24 @@ else
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+""""""""""""""
+" tmux fixes "
+""""""""""""""
+" Handle tmux $TERM quirks in vim
+ if $TERM =~ '^screen-256color'
+     map <Esc>OH <Home>
+     map! <Esc>OH <Home>
+     map <Esc>OF <End>
+     map! <Esc>OF <End>
+ endif
 
 let g:indent_guides_auto_colors = 0
+autocmd VimEnter,ColorScheme * :hi Normal ctermbg=none
 autocmd VimEnter,ColorScheme * :hi IndentGuidesOdd ctermbg=none
 autocmd VimEnter,ColorScheme * :hi IndentGuidesEven ctermbg=none
 
 
+Bundle 'joonty/vdebug.git'
 let g:vdebug_keymap = {
 \    "run" : "<F5>",
 \    "run_to_cursor" : "<F4>",
